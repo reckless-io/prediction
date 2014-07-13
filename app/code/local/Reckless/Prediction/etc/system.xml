@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <reckless_tab translate="label">
+            <label>Reckless Data</label>
+            <sort_order>11</sort_order>
+        </reckless_tab>
+    </tabs>
+    <sections>
+        <reckless_prediction translate="label">
+            <label>Predictions</label>
+            <tab>reckless_tab</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>3</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <reckless_prediction_section translate="label">
+                    <label>Core Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <reckless_prediction_enable>
+                            <label>Enable Reckless Data</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[If enabled, Reckless Data module will be enabled which includes sync to Reckless Servers and predictions. Default: Disabled]]></comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_enable>
+                        <reckless_prediction_api_key>
+                            <label>API Key</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>20</sort_order>
+                            <comment><![CDATA[API key from Reckless.io. ***PLEASE DO NOT CHANGE.]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_api_key>
+                        <reckless_prediction_base_url>
+                            <label>Registered Domain</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>30</sort_order>
+                            <comment><![CDATA[Set by Reckless.io. ***PLEASE DO NOT CHANGE.]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_base_url>
+                        <reckless_prediction_sync_customer_email>
+                            <label>Enable Customer Email Sync</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[*** For this version, ONLY Customer ID will be used. If enabled, Customer emails will be used for analysis. If disabled, only customer id will be used. Default: Disabled]]></comment>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_sync_customer_email>
+                        <reckless_prediction_notificationemail>
+                            <label>Notification Email</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <comment><![CDATA[Email address to send error notifications to.]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_notificationemail>
+                        <reckless_prediction_enablelog>
+                            <label>Enable Logs</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <comment><![CDATA[Enable or Disable cleanup logs. Default: Enabled]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_enablelog>
+                        <reckless_prediction_logfilename>
+                            <label>Log file name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <comment><![CDATA[All errors will be logged in this file]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_logfilename>
+                    </fields>
+                </reckless_prediction_section>
+                <reckless_promotions_section translate="label">
+                    <label>Dynamic Promotions</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <reckless_dynamic_promotion_enable>
+                            <label>Enable Reckless Dynamic Promotion</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[If enabled, Reckless Data will display dynamic promotins to customers on checkout. Default: Disabled]]></comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </reckless_dynamic_promotion_enable>
+                        <reckless_prediction_promotion_threshould>
+                            <label>Max promotion budget in 24hrs</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <comment><![CDATA[*** DO NOT USE. Feature not enabled in this version. Maximum promotions budget for Reckless to Giveaway in a 24 hour period. Default: 10 GBP]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promotion_threshould>
+                        <reckless_prediction_promocodevalid_starts_from>
+                            <label>Promotion Code Validity Starts in (days)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <comment><![CDATA[When should the promotion code be valid from. Default: 0 (days) which is immediately]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocodevalid_starts_from>
+                        <reckless_prediction_promocodevalid_time>
+                            <label>Promotion Code Validity (days)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <comment><![CDATA[The time limit for the dynamically generated promocode from Created Date.Default: 60 Days]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocodevalid_time>
+                        <reckless_dynamic_promotion_discount_type>
+                            <label>Coupon Discount is Percentage of Current Cart</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[If enabled, Coupon Value will be a percentage of current cart value. If disabled, coupon code will offer a percentage off in the next cart. Default: Disabled]]></comment>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </reckless_dynamic_promotion_discount_type>
+                        <reckless_prediction_promocode_percent>
+                            <label>Percentage Discount</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <comment><![CDATA[Discount Percentage for Promo Code; either on current cart value for future checkout OR percentage off in the next checkout. This is driven by the above configuration. Default: 5%]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocode_percent>
+                        <reckless_prediction_promocode_desc>
+                            <label>Promotion Code Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <comment><![CDATA[Description of Promo Code.Default: Personalised Promo Code for customer {CustomerID}]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocode_desc>
+
+                        <reckless_prediction_promocode_prefix>
+                            <label>Promotion Code Prefix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <comment><![CDATA[Will be prefixed before the promo code. Eg. {Prefix}{4RandomChars}-{CustomerID}.Default: PRSL]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocode_prefix>
+                        <reckless_prediction_promocode_usage>
+                            <label>Promotion Code Max Usage</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <comment><![CDATA[How many times, this code can be used. Default: 1]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocode_usage>
+                        <reckless_prediction_promocode_usagepercustomer>
+                            <label>Usage per customer</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <comment><![CDATA[How many times this code can be used by one customer.Default: 1]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocode_usagepercustomer>
+                        <reckless_prediction_promocode_type>
+                            <label>Coupon Type</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <comment><![CDATA[Coupon Type.Default: 2]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocode_type>
+                        <reckless_prediction_promocode_stoprulesprocessing>
+                            <label>Stop Rules Processing</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <comment><![CDATA[Stop Further Rules from Processing.Default: Disabled]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_promocode_stoprulesprocessing>
+                        <reckless_prediction_customer_promo_message_yes>
+                            <label>Message for Predicted Checkout: YES</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>110</sort_order>
+                            <comment><![CDATA[Message that will be displayed to the customer in the view cart page if the predicted checkot intent is YES. The coupon code will always be the last word in the sentence. Default: Thank you for choosing us. As a token of appreciation, we would like to offer you 5% off next time. Please use code: {Coupon Code}]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_customer_promo_message_yes>
+                        <reckless_prediction_customer_promo_message_no>
+                            <label>Message for Predicted Checkout: NO</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>120</sort_order>
+                            <comment><![CDATA[Message that will be displayed to the customer in the view cart page if the predicted checkot intent is NO. The coupon code will always be the last word in the sentence. Default: Thank you for choosing us. As a token of appreciation, we would like to offer you 5% off next time. Please use code: {Coupon Code}]]></comment>
+                            <show_in_default>1</show_in_default>
+                        </reckless_prediction_customer_promo_message_no>
+                    </fields>
+                </reckless_promotions_section>
+            </groups>
+        </reckless_prediction>
+    </sections>
+</config>

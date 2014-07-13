@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Reckless_Prediction>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Reckless_Prediction>
+    </modules>
+</config>

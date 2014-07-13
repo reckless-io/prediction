@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Reckless_Prediction>
+            <version>0.1.1</version>
+        </Reckless_Prediction>
+    </modules>
+    <global>
+        <models>
+            <prediction>
+                <class>Reckless_Prediction_Model</class>
+                <resourceModel>prediction_resource</resourceModel>
+            </prediction>
+            <prediction_resource>
+                <class>Reckless_Prediction_Model_Resource</class>
+                <entities>
+                    <promotions>
+                        <table>reckless_promotions</table>
+                    </promotions>
+                </entities>
+            </prediction_resource>
+        </models>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <customer_online_grid>Reckless_Prediction_Block_Adminhtml_Customer_Online_Grid</customer_online_grid>
+                </rewrite>
+            </adminhtml>
+            <reckless_prediction>
+                <class>Reckless_Prediction_Block</class>
+            </reckless_prediction>
+        </blocks>
+        <helpers>
+            <reckless_prediction>
+                <class>Reckless_Prediction_Helper</class>
+            </reckless_prediction>
+        </helpers>
+        <resources>
+            <reckless_prediction_setup>
+                <setup>
+                    <module>Reckless_Prediction</module>
+                    <class>Reckless_Prediction_Model_Resource_Setup</class>
+                </setup>
+            </reckless_prediction_setup>
+            <reckless_prediction_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </reckless_prediction_write>
+            <reckless_prediction_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </reckless_prediction_read>
+        </resources>
+        <events>
+            <checkout_cart_add_product_complete>
+                <observers>
+                    <reckless_prediction_promotion_observer>
+                        <type>singleton</type>
+                        <class>Reckless_Prediction_Model_Promotion_Observer</class>
+                        <method>show_predicted_coupon_code</method>
+                    </reckless_prediction_promotion_observer>
+                </observers>
+            </checkout_cart_add_product_complete>
+        </events>
+
+    </global>
+    <default>
+        <reckless_prediction>
+            <reckless_prediction_section>
+                <reckless_prediction_enable>0</reckless_prediction_enable>
+                <reckless_prediction_sync_customer_email>0</reckless_prediction_sync_customer_email>
+                <reckless_prediction_notificationemail>hello@reckless.io</reckless_prediction_notificationemail>
+                <reckless_prediction_enablelog>1</reckless_prediction_enablelog>
+                <reckless_prediction_logfilename>reckless_prediction.log</reckless_prediction_logfilename>
+            </reckless_prediction_section>
+            <reckless_promotions_section>
+                <reckless_dynamic_promotion_enable>0</reckless_dynamic_promotion_enable>
+                <reckless_prediction_promotion_threshould>10</reckless_prediction_promotion_threshould>  <!-- Value in Base Currency Of the Store -->
+                <reckless_prediction_promocodevalid_time>60</reckless_prediction_promocodevalid_time> <!-- In Days, Default: 60 Days -->
+                <reckless_prediction_promocodevalid_starts_from>0</reckless_prediction_promocodevalid_starts_from> <!-- In days, Defaule : 0 which is The same day" -->
+                <reckless_prediction_promocode_stoprulesprocessing>0</reckless_prediction_promocode_stoprulesprocessing>
+                <reckless_prediction_promocode_type>2</reckless_prediction_promocode_type>
+                <reckless_prediction_promocode_usagepercustomer>1</reckless_prediction_promocode_usagepercustomer>
+                <reckless_prediction_promocode_usage>1</reckless_prediction_promocode_usage>
+                <reckless_prediction_promocode_prefix>PRSL</reckless_prediction_promocode_prefix>
+                <reckless_prediction_promocode_desc>Personalised Promo Code for customer </reckless_prediction_promocode_desc>
+                <reckless_dynamic_promotion_discount_type>0</reckless_dynamic_promotion_discount_type>
+                <reckless_prediction_promocode_percent>5</reckless_prediction_promocode_percent>
+                <reckless_prediction_customer_promo_message_yes>Thank you for choosing us. As a token of appreciation, we would like to offer you 5% off next time. Please use code:</reckless_prediction_customer_promo_message_yes>
+                <reckless_prediction_customer_promo_message_no>Thank you for choosing us. As a token of appreciation, we would like to offer you 5% off next time. Please use code:</reckless_prediction_customer_promo_message_no>
+            </reckless_promotions_section>
+        </reckless_prediction>
+    </default>
+
+    <crontab>
+        <jobs>
+            <reckless_start_training>
+                <schedule><cron_expr>*/30 * * * *</cron_expr></schedule>
+                <run><model>prediction/promotions::train</model></run>
+            </reckless_start_training>
+            <reckless_prediction_heartbeat>
+                <schedule><cron_expr>*/5 * * * *</cron_expr></schedule>
+                <run><model>prediction/promotions::predict</model></run>
+            </reckless_prediction_heartbeat>
+        </jobs>
+    </crontab>
+    <admin>
+        <routers>
+            <reckless_prediction>
+                <use>admin</use>
+                <args>
+                    <module>Reckless_Prediction</module>
+                    <frontName>reckless_prediction</frontName>
+                </args>
+            </reckless_prediction>
+        </routers>
+    </admin>
+</config>

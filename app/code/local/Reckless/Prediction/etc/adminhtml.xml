@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <customer>
+            <children>
+                <reckless_prediction translate="title" module="reckless_prediction">
+                    <title>Reckless Predictions</title>
+                    <sort_order>130</sort_order>
+                    <action>reckless_prediction/adminhtml_prediction</action>
+                </reckless_prediction>
+            </children>
+        </customer>
+        <report>
+            <children>
+                <reckless_prediction translate="title" module="reckless_prediction">
+                    <title>Reckless Redemptions</title>
+                    <sort_order>130</sort_order>
+                    <action>reckless_prediction/adminhtml_prediction/redemptions</action>
+                </reckless_prediction>
+            </children>
+        </report>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin translate="title" module="adminhtml">
+                <children>
+                    <customer>
+                        <children>
+                            <reckless_prediction>
+                                <title>Reckless Predictions</title>
+                                <sort_order>200</sort_order>
+                            </reckless_prediction>
+                        </children>
+                    </customer>
+                    <report>
+                        <children>
+                            <reckless_prediction>
+                                <title>Reckless Redemptions Report</title>
+                                <sort_order>200</sort_order>
+                            </reckless_prediction>
+                        </children>
+                    </report>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <reckless_prediction translate="title">
+                                        <title>Reckless Predictions</title>
+                                        <sort_order>200</sort_order>
+                                    </reckless_prediction>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
