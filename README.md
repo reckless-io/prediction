@@ -31,7 +31,7 @@ Features
 
 Reporting
 
-insi Report 1 : Promotions Report
+Report 1 : Promotions Report
 Reports the predicted checkout intent for all the online customers, their quotes and the corresponding coupon code offered to the customer.
 Access: Magento Admin Panel : Customers > Reckless Promotions
 
@@ -45,6 +45,7 @@ Demo Store
 
 > Store: http://magento.reckless.io
 > Admin Back-end: http://magento.reckless.io/admin (Admin Username: admin Password: password1234)
+
 Key Configuration ( Access: Magento Admin Panel : System > Configurations > Reckless Data > Predictions )
 
     API Key: Configured by Reckless Servers, Please do not change.
